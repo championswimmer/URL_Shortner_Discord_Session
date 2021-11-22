@@ -7,10 +7,10 @@ export default class Url extends BaseEntity {
   public id!: number;
 
   @Column({ name: 'long_url', length: 1024, nullable: false })
-  public url!: string
+  public longUrl!: string
 
   @Column({ name: 'short_code', length: 9, nullable: false })
-  public shortenedUrl!: string
+  public shortCode!: string
 
   @CreateDateColumn({ name: 'created_at' })
   public createdAt: Date = new Date()
