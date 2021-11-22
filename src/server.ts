@@ -5,6 +5,8 @@ import { connect } from './db/connection'
 
 const app = express()
 
+app.use(express.json())
+
 app.use('/urls', urlRoute)
 app.use('/users', userRoute)
 

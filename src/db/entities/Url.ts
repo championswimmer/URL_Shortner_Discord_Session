@@ -1,4 +1,4 @@
-import { BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, PrimaryColumn, UpdateDateColumn } from 'typeorm'
+import { BaseEntity, Column, CreateDateColumn, Entity, getConnection, ManyToOne, PrimaryColumn, UpdateDateColumn } from 'typeorm'
 import User from './User'
 
 @Entity({ name: 'urls' })
@@ -21,3 +21,5 @@ export default class Url extends BaseEntity {
   @ManyToOne(type => User)
   public owner!: User
 }
+
+export const getUrlRepository = () => getConnection().getRepository<Url>(Url)

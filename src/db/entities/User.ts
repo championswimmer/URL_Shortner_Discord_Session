@@ -1,4 +1,4 @@
-import { BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
+import { BaseEntity, Column, CreateDateColumn, Entity, getConnection, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
 
 @Entity({ name: 'users' })
 export default class User extends BaseEntity {
@@ -13,4 +13,15 @@ export default class User extends BaseEntity {
 
   @UpdateDateColumn({ name: 'updated_at' })
   public updatedAt: Date = new Date()
+
+  /**
+   * FIXME: This is temporary column used to populate with GUIDs,
+   *        which we'll temporary use as auth tokens.
+   *        Eventually we should move to using Google login oauths,
+   *        at which point this column will be removed.
+   */
+   @Column({ generated: 'uuid' })
+   public token!: string
 }
+
+export const getUserRepository = () => getConnection().getRepository<User>(User)
