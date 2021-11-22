@@ -12,4 +12,22 @@ Initial parts of this project was built over a YouTube liverstream. Those can be
 - 📺 Part 1: Project Requirements and Setup 
     https://www.youtube.com/watch?v=WnrB2g5pHQ0 
 
+## Database 
 
+This project will need either a MySQL or a PostgreSQL database.
+Use the following steps to setup your database. 
+
+#### PostgreSQL 
+
+```mysql
+CREATE USER sclr_ac WITH ENCRYPTED PASSWORD 'sclrac';
+CREATE DATABASE sclr_ac;
+GRANT ALL PRIVILEGES ON DATABASE sclrac TO sclrac;
+```
+
+#### MySQL
+```mysql 
+CREATE DATABASE sclrac;
+CREATE USER sclrac IDENTIFIED BY 'sclrac';
+GRANT ALL PRIVILEGES ON sclrac.* TO sclrac;
+```
